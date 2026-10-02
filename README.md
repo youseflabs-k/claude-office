@@ -23,14 +23,27 @@ Then open it:
 The studio ships built, so there is no install step and nothing to compile.
 Node 20.19 or newer is the only requirement.
 
-## Run it directly
+## Or run it without installing anything
+
+```sh
+npx @youseflabs/claude-office
+```
+
+It prints the URL and opens your browser. `--port` picks a different port and
+`--no-open` leaves the browser alone; `CLAUDE_OFFICE_PORT` works too.
+
+To keep it around:
+
+```sh
+npm install -g @youseflabs/claude-office
+claude-office
+```
+
+## From a clone
 
 ```sh
 ./start.sh
 ```
-
-It prints the URL and opens your browser. Set `CLAUDE_OFFICE_PORT` to use a
-port other than 7878.
 
 ## What it does
 

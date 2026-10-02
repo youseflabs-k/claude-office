@@ -383,12 +383,15 @@ server.listen(PORT, '127.0.0.1', async () => {
   const url = `http://127.0.0.1:${port}/`;
   console.log(JSON.stringify({ type: 'server-started', port, url }));
 
-  const opener = process.platform === 'darwin'
-    ? 'open'
-    : process.platform === 'win32'
-      ? 'start'
-      : 'xdg-open';
-  spawn(opener, [url], { detached: true, stdio: 'ignore' }).unref();
+  // Headless and CI runs do not want a browser window thrown at them.
+  if (!process.env.CLAUDE_OFFICE_NO_OPEN) {
+    const opener = process.platform === 'darwin'
+      ? 'open'
+      : process.platform === 'win32'
+        ? 'start'
+        : 'xdg-open';
+    spawn(opener, [url], { detached: true, stdio: 'ignore' }).unref();
+  }
 });
 
 async function shutdown() {

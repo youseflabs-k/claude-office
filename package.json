@@ -1,7 +1,53 @@
 {
-  "name": "claude-office",
-  "version": "0.1.0",
+  "name": "@youseflabs/claude-office",
+  "version": "0.2.0",
+  "description": "A live 3D office for your Claude Code sessions. Sessions and subagents walk in, take a desk, work, and break for coffee \u2014 driven by what is actually happening in ~/.claude.",
   "type": "module",
-  "private": true,
-  "description": "A live office dashboard for your Claude sessions and agents"
+  "bin": {
+    "claude-office": "bin/claude-office.js"
+  },
+  "files": [
+    "bin",
+    "server",
+    "app/dist",
+    "app/public",
+    "commands",
+    "hooks",
+    ".claude-plugin",
+    "start.sh",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "start": "node bin/claude-office.js",
+    "build": "npm --prefix app run build",
+    "test": "npm --prefix app test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youseflabs-k/claude-office.git"
+  },
+  "homepage": "https://github.com/youseflabs-k/claude-office",
+  "bugs": {
+    "url": "https://github.com/youseflabs-k/claude-office/issues"
+  },
+  "author": "Ahmed Yousef",
+  "license": "MIT",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "agents",
+    "dashboard",
+    "visualization",
+    "3d",
+    "three.js",
+    "sessions",
+    "monitoring"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
