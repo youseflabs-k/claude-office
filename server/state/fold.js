@@ -88,9 +88,9 @@ export function fold(state, event) {
             ...own,
             tool: null,
             active: false, pendingTurn:false,
-            completedAt: own.active && !own.questionCandidate && !own.needsYou ? event.at : own.completedAt,
-            needsYou: own.needsYou || Boolean(own.questionCandidate),
-            ...(own.questionCandidate ? {attentionReason:'question',attentionText:own.questionCandidate} : {}),
+            completedAt: own.active && !own.needsYou ? event.at : own.completedAt,
+            needsYou: Boolean(own.needsYou && (own.attentionToolId || own.attentionReason === 'permission')),
+            ...(!own.attentionToolId && own.attentionReason !== 'permission' ? {attentionText:null,attentionReason:null,attentionAt:null} : {}),
             waiting: true,
             // When the session actually went idle, not when this panel first
             // saw it. A session idle for hours must not look freshly idle
@@ -148,8 +148,8 @@ export function fold(state, event) {
       const agent = agents[event.agentId];
       if (!agent || event.at < (agent.activityAt ?? 0)) break;
       const next = { ...agent, activityAt:event.at };
-      for (const key of ['pendingTurn','turnStartedAt','lastResponseAt','responseCanComplete','needsYou','attentionToolId','attentionReason','attentionText','questionCandidate']) if (key in event) next[key]=event[key];
-      if (event.answeredToolIds?.includes(agent.attentionToolId)) { next.needsYou=false; next.attentionToolId=null; next.attentionText=null; }
+      for (const key of ['pendingTurn','turnStartedAt','lastResponseAt','responseCanComplete','needsYou','attentionToolId','attentionReason','attentionText']) if (key in event) next[key]=event[key];
+      if (event.answeredToolIds?.includes(agent.attentionToolId)) { next.needsYou=false; next.attentionToolId=null; next.attentionText=null; next.attentionReason=null; next.attentionAt=null; }
       const session = sessions[event.sessionId];
       const idleAt = session?.statusAt ?? 0;
       const confirmed = event.completed && !(agent.isSession && session?.status === 'busy' && session.statusAt > event.at) || agent.isSession && session?.status === 'idle' && next.responseCanComplete && next.lastResponseAt >= (next.turnStartedAt ?? 0) && idleAt >= next.lastResponseAt;
@@ -157,8 +157,8 @@ export function fold(state, event) {
         Object.assign(next,{active:false,pendingTurn:false,waiting:true,needsYou:false,tool:null,idleSince:event.at,interruptedAt:event.at});
       } else if (confirmed) {
         Object.assign(next,{active:false,pendingTurn:false,waiting:true,tool:null,idleSince:event.at});
-        next.needsYou = Boolean(next.needsYou || next.questionCandidate);
-        if (next.questionCandidate) Object.assign(next,{attentionReason:'question',attentionText:next.questionCandidate});
+        next.needsYou = Boolean(next.needsYou && next.attentionToolId);
+        if (!next.needsYou) Object.assign(next,{attentionText:null,attentionReason:null,attentionAt:null});
         if (agent.active && !next.needsYou) next.completedAt=event.at;
       } else Object.assign(next,{active:true,waiting:false,idleSince:null});
       if (next.needsYou && !agent.needsYou) next.attentionAt=event.at;

@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "author": {
     "name": "Ahmed Yousef",
-    "email": "ahmedmmy97@gmail.com"
+    "url": "https://github.com/youseflabs-k"
   },
   "keywords": [
     "dashboard",
@@ -14,5 +14,7 @@
     "3d",
     "three.js"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/youseflabs-k/claude-office",
+  "homepage": "https://github.com/youseflabs-k/claude-office"
 }

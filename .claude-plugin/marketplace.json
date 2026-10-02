@@ -1,0 +1,38 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "youseflabs-claude-office",
+  "owner": {
+    "name": "Yousef Labs",
+    "url": "https://github.com/youseflabs-k"
+  },
+  "metadata": {
+    "description": "A live 3D office for your Claude Code sessions and agents.",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-office",
+      "source": "./",
+      "description": "A live 3D office for your Claude Code sessions. Sessions and subagents walk in, take a desk, work while a tool runs, break for coffee when control comes back to you, and leave when they finish — driven by what is actually happening in ~/.claude. Click anyone to read their transcript. Ships prebuilt, so /panel runs with no install step.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Ahmed Yousef",
+        "url": "https://github.com/youseflabs-k"
+      },
+      "repository": "https://github.com/youseflabs-k/claude-office",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "dashboard",
+        "sessions",
+        "agents",
+        "subagents",
+        "visualization",
+        "3d",
+        "three.js",
+        "monitoring",
+        "transcripts"
+      ]
+    }
+  ]
+}

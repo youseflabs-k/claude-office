@@ -55,12 +55,11 @@ Claude's explicit `[Request interrupted by user]` and
 `[Request interrupted by user for tool use]` records clear pending activity and
 allow idle routines. Interruption is not successful completion and emits no chime.
 
-Attention detection covers Claude's AskUserQuestion tool and direct questions
-addressed to the user at the end of a response (for example “Want me to push it?”).
-Plain-text question detection is conservative and requires a confirmed turn end;
-it ignores code and quoted text. The matching tool answer or a new user prompt
-clears attention. Pending questions show the actual question, a raised hand, and
-“Needs you” consistently in scene labels, team cards, and Details.
+Attention detection uses actual blocking input signals: Claude's AskUserQuestion
+tool and permission prompts. A question written in an ordinary final response
+completes the task and leaves the agent idle. Matching tool answers, a new user
+prompt, or interruption clear the pending request. Pending questions show the
+actual question, a raised hand, and “Needs you” in labels, team cards, and Details.
 
 Notification sounds now include a distinct attention chime. Each request alerts
 once, with simultaneous completion notifications suppressed. If browser audio is

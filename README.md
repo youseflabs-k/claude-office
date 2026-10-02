@@ -7,8 +7,11 @@ happening in `~/.claude`, not a simulation.
 
 ## Install as a Claude Code plugin
 
-```sh
-/plugin install <owner>/claude-office
+This repository is its own marketplace, so add it and then install from it:
+
+```
+/plugin marketplace add youseflabs-k/claude-office
+/plugin install claude-office@youseflabs-claude-office
 ```
 
 Then open it:

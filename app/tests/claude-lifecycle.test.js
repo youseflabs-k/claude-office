@@ -106,15 +106,24 @@ test('Claude question tool sets attention until its matching answer arrives', ()
   assert.equal(state.agents.s.needsYou,false);
 });
 
-test('a final direct question raises attention instead of completing the task', () => {
+test('a question in ordinary response text finishes idle without attention', () => {
   let state=emptyState();
   const apply=e=>state=fold(state,{sessionId:'s',agentId:'s',...e});
   apply({kind:'session.start',projectId:'p',at:1}); apply({kind:'session.status',status:'busy',at:2});
   apply({kind:'agent.activity',...activityRecord({type:'assistant',timestamp:'2026-10-02T12:00:00Z',message:{content:[{type:'text',text:'The branch is still unpushed. Want me to push it?'}],stop_reason:null}})});
-  assert.equal(state.agents.s.needsYou,undefined,'wait until the response has ended');
   apply({kind:'agent.activity',...activityRecord({type:'system',subtype:'turn_duration',timestamp:'2026-10-02T12:00:01Z'})});
-  assert.equal(state.agents.s.needsYou,true); assert.equal(state.agents.s.attentionText,'Want me to push it?');
-  assert.equal(state.agents.s.completedAt,undefined);
-  apply({kind:'agent.activity',...activityRecord({type:'user',timestamp:'2026-10-02T12:00:02Z',message:{content:[{type:'text',text:'yes'}]}})});
-  assert.equal(state.agents.s.needsYou,false); assert.equal(state.agents.s.active,true);
+  assert.equal(state.agents.s.needsYou,false); assert.equal(state.agents.s.active,false);
+  assert.equal(state.agents.s.waiting,true); assert.equal(state.agents.s.attentionText,null);
+  assert.ok(state.agents.s.completedAt);
+});
+
+// Recovery must clear an attention latch left by the old text-question heuristic.
+test('normal completion clears stale text attention but preserves a pending answer tool', () => {
+  const idleAgent={id:'s',sessionId:'s',isSession:true,status:'running',active:true,needsYou:true,attentionReason:'question',attentionText:'Want me to push it?'};
+  let state={sessions:{s:{id:'s',projectId:'p',status:'busy',statusAt:1}},agents:{s:idleAgent}};
+  state=fold(state,{kind:'agent.activity',sessionId:'s',agentId:'s',completed:true,at:10});
+  assert.equal(state.agents.s.needsYou,false); assert.equal(state.agents.s.attentionText,null);
+  state={sessions:{s:{id:'s',status:'busy',statusAt:1}},agents:{s:{...idleAgent,attentionToolId:'ask'}}};
+  state=fold(state,{kind:'agent.activity',sessionId:'s',agentId:'s',completed:true,at:10});
+  assert.equal(state.agents.s.needsYou,true); assert.equal(state.agents.s.attentionToolId,'ask');
 });
