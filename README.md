@@ -1,49 +1,65 @@
 # Claude Office
 
+[![npm](https://img.shields.io/npm/v/@yousef-labs/claude-office)](https://www.npmjs.com/package/@yousef-labs/claude-office)
+[![MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+![node](https://img.shields.io/badge/node-%E2%89%A520.19-brightgreen)
+
 A live 3D office for your Claude Code sessions. Every running session and
 subagent is a character on the floor: they walk in, take a desk, work, get up
 for coffee, and leave when they finish. It is driven by what is actually
 happening in `~/.claude`, not a simulation.
 
-## Install as a Claude Code plugin
+## Run it
 
-This repository is its own marketplace, so add it and then install from it:
+Nothing to install, nothing to build:
+
+```sh
+npx @yousef-labs/claude-office
+```
+
+It prints the URL and opens your browser.
+
+| | |
+| --- | --- |
+| `--port 8080` | listen somewhere else (or set `CLAUDE_OFFICE_PORT`) |
+| `--no-open` | leave the browser alone |
+| `--help` | the rest |
+
+To keep it around:
+
+```sh
+npm install -g @yousef-labs/claude-office
+claude-office
+```
+
+### As a Claude Code plugin
+
+The repository is its own marketplace, so add it and then install from it:
 
 ```
 /plugin marketplace add youseflabs-k/claude-office
 /plugin install claude-office@youseflabs-claude-office
 ```
 
-Then open it:
+Then `/panel` opens the studio.
 
-```
-/panel
-```
-
-The studio ships built, so there is no install step and nothing to compile.
-Node 20.19 or newer is the only requirement.
-
-## Or run it without installing anything
+### From a clone
 
 ```sh
-npx @youseflabs/claude-office
+git clone https://github.com/youseflabs-k/claude-office.git
+cd claude-office && ./start.sh
 ```
 
-It prints the URL and opens your browser. `--port` picks a different port and
-`--no-open` leaves the browser alone; `CLAUDE_OFFICE_PORT` works too.
+Every route needs Node 20.19 or newer. The studio ships prebuilt, so none of
+them compile anything.
 
-To keep it around:
+## It is read-only
 
-```sh
-npm install -g @youseflabs/claude-office
-claude-office
-```
-
-## From a clone
-
-```sh
-./start.sh
-```
+The server reads `~/.claude` to see which sessions are running and tails their
+transcripts. It writes nothing there, binds to loopback only, and sends
+nothing anywhere. The one exception is deliberate: the project panel can
+create agents, skills, flows and rules in a project's `.claude` directory, and
+it shows you flows and rules for approval before writing them.
 
 ## What it does
 

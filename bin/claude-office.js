@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// The command line entry point: `npx @youseflabs/claude-office`.
+// The command line entry point: `npx @yousef-labs/claude-office`.
 //
 // Everything it does is start the panel server, which serves the studio and
 // watches ~/.claude. Paths inside the server resolve from its own location, so
@@ -28,7 +28,7 @@ if (has('-h', '--help')) {
   claude-office — a live 3D office for your Claude Code sessions
 
   Usage
-    npx @youseflabs/claude-office [options]
+    npx @yousef-labs/claude-office [options]
 
   Options
     -p, --port <number>   Port to listen on (default 7878)

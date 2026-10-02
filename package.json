@@ -1,5 +1,5 @@
 {
-  "name": "@youseflabs/claude-office",
+  "name": "@yousef-labs/claude-office",
   "version": "0.2.0",
   "description": "A live 3D office for your Claude Code sessions. Sessions and subagents walk in, take a desk, work, and break for coffee \u2014 driven by what is actually happening in ~/.claude.",
   "type": "module",
