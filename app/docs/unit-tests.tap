@@ -1,0 +1,212 @@
+
+> cozy-office-react@1.0.0 test
+> node --test tests/*.test.js
+
+TAP version 13
+# Subtest: initial studio has four distinct roles, two at work and two on breaks
+ok 1 - initial studio has four distinct roles, two at work and two on breaks
+  ---
+  duration_ms: 5.062351
+  type: 'test'
+  ...
+# Subtest: project presets are independent and use the requested project ID
+ok 2 - project presets are independent and use the requested project ID
+  ---
+  duration_ms: 0.912513
+  type: 'test'
+  ...
+# Subtest: working agent stands, walks to coffee, and returns to sit and type
+ok 3 - working agent stands, walks to coffee, and returns to sit and type
+  ---
+  duration_ms: 14.45752
+  type: 'test'
+  ...
+# Subtest: agents can rest, stand in place, walk to an open point, and celebrate
+ok 4 - agents can rest, stand in place, walk to an open point, and celebrate
+  ---
+  duration_ms: 33.549564
+  type: 'test'
+  ...
+# Subtest: commands and simulation steps do not mutate previous snapshots
+ok 5 - commands and simulation steps do not mutate previous snapshots
+  ---
+  duration_ms: 4.886278
+  type: 'test'
+  ...
+# Subtest: invalid agent IDs, actions and nonfinite floor positions are safe errors
+ok 6 - invalid agent IDs, actions and nonfinite floor positions are safe errors
+  ---
+  duration_ms: 6.866805
+  type: 'test'
+  ...
+# Subtest: reservations prevent more than three agents choosing coffee or lounge
+ok 7 - reservations prevent more than three agents choosing coffee or lounge
+  ---
+  duration_ms: 102.165583
+  type: 'test'
+  ...
+# Subtest: repeated status commands do not restart walking or sit/stand transitions
+ok 8 - repeated status commands do not restart walking or sit/stand transitions
+  ---
+  duration_ms: 40.391597
+  type: 'test'
+  ...
+# Subtest: coffee chats reserve distinct slots and fail atomically when full
+ok 9 - coffee chats reserve distinct slots and fail atomically when full
+  ---
+  duration_ms: 12.3918
+  type: 'test'
+  ...
+# Subtest: hiring supports all sixteen appearances but caps occupancy at twelve
+ok 10 - hiring supports all sixteen appearances but caps occupancy at twelve
+  ---
+  duration_ms: 8.6619
+  type: 'test'
+  ...
+# Subtest: simulation metrics are bounded and completed tasks produce events
+ok 11 - simulation metrics are bounded and completed tasks produce events
+  ---
+  duration_ms: 49.606364
+  type: 'test'
+  ...
+# Subtest: externally controlled agents never accumulate fabricated metrics or autonomous commands
+ok 12 - externally controlled agents never accumulate fabricated metrics or autonomous commands
+  ---
+  duration_ms: 29.898359
+  type: 'test'
+  ...
+# Subtest: autonomous agents complete safe break/return cycles
+ok 13 - autonomous agents complete safe break/return cycles
+  ---
+  duration_ms: 59.860327
+  type: 'test'
+  ...
+# Subtest: invalid dt is ignored and large dt is clamped
+ok 14 - invalid dt is ignored and large dt is clamped
+  ---
+  duration_ms: 0.258511
+  type: 'test'
+  ...
+# Subtest: the activity feed has a hard maximum length
+ok 15 - the activity feed has a hard maximum length
+  ---
+  duration_ms: 0.729129
+  type: 'test'
+  ...
+# Subtest: backend events apply safe metrics without emitting a command feedback loop
+ok 16 - backend events apply safe metrics without emitting a command feedback loop
+  ---
+  duration_ms: 7.979453
+  type: 'test'
+  ...
+# Subtest: malformed, unknown-agent and unknown-status backend events are rejected
+ok 17 - malformed, unknown-agent and unknown-status backend events are rejected
+  ---
+  duration_ms: 0.824959
+  type: 'test'
+  ...
+# Subtest: telemetry is bounded and invalid types cannot overwrite numbers
+ok 18 - telemetry is bounded and invalid types cannot overwrite numbers
+  ---
+  duration_ms: 0.475537
+  type: 'test'
+  ...
+# Subtest: all 18 interaction entry points are navigable
+ok 19 - all 18 interaction entry points are navigable
+  ---
+  duration_ms: 2.4968
+  type: 'test'
+  ...
+# Subtest: all 324 directed slot-to-slot routes exist and avoid furniture
+ok 20 - all 324 directed slot-to-slot routes exist and avoid furniture
+  ---
+  duration_ms: 438.155772
+  type: 'test'
+  ...
+# Subtest: invalid or obstructed floor destinations are rejected
+ok 21 - invalid or obstructed floor destinations are rejected
+  ---
+  duration_ms: 0.478436
+  type: 'test'
+  ...
+# Subtest: blocked starts can be recovered to a nearby free point
+ok 22 - blocked starts can be recovered to a nearby free point
+  ---
+  duration_ms: 1.113016
+  type: 'test'
+  ...
+# Subtest: no movement is required when already at the destination
+ok 23 - no movement is required when already at the destination
+  ---
+  duration_ms: 1.068693
+  type: 'test'
+  ...
+# Subtest: slab checks catch very small corner intersections
+ok 24 - slab checks catch very small corner intersections
+  ---
+  duration_ms: 0.222689
+  type: 'test'
+  ...
+# Subtest: continuous targets near grid boundaries remain reachable
+ok 25 - continuous targets near grid boundaries remain reachable
+  ---
+  duration_ms: 22.953618
+  type: 'test'
+  ...
+# Subtest: all stable agent positions and metrics survive export/import
+ok 26 - all stable agent positions and metrics survive export/import
+  ---
+  duration_ms: 5.957482
+  type: 'test'
+  ...
+# Subtest: exported position arrays do not mutate the running world
+ok 27 - exported position arrays do not mutate the running world
+  ---
+  duration_ms: 0.27165
+  type: 'test'
+  ...
+# Subtest: imports discard transient animation/path data and relocate unsafe positions
+ok 28 - imports discard transient animation/path data and relocate unsafe positions
+  ---
+  duration_ms: 6.575893
+  type: 'test'
+  ...
+# Subtest: schema, identifiers, roles and desk assignments are validated
+ok 29 - schema, identifiers, roles and desk assignments are validated
+  ---
+  duration_ms: 1.136295
+  type: 'test'
+  ...
+# Subtest: untrusted imports clamp numbers, shorten strings and ignore unexpected keys
+ok 30 - untrusted imports clamp numbers, shorten strings and ignore unexpected keys
+  ---
+  duration_ms: 0.314806
+  type: 'test'
+  ...
+# Subtest: duplicate lounge or coffee seats are resolved into unique valid slots
+ok 31 - duplicate lounge or coffee seats are resolved into unique valid slots
+  ---
+  duration_ms: 0.559429
+  type: 'test'
+  ...
+# Subtest: per-project sessions persist independently and settings are bounded
+ok 32 - per-project sessions persist independently and settings are bounded
+  ---
+  duration_ms: 7.539011
+  type: 'test'
+  ...
+# Subtest: blocked storage and corrupt saves fail gracefully
+ok 33 - blocked storage and corrupt saves fail gracefully
+  ---
+  duration_ms: 0.266332
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 541.907745

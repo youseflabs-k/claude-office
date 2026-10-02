@@ -1,0 +1,7 @@
+node_modules/
+*.log
+
+# React app
+app/node_modules/
+
+# app/dist is committed: the plugin has to run without a build step.

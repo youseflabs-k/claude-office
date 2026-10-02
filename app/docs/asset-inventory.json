@@ -1,0 +1,518 @@
+{
+  "models": 52,
+  "characters": 16,
+  "furniture": 36,
+  "animationClips": 128,
+  "portraits": 16,
+  "modelBytes": 6207848,
+  "files": [
+    {
+      "file": "public/models/characters/backend-engineer.glb",
+      "bytes": 330632,
+      "nodes": 60,
+      "meshes": 59,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/bug-triage.glb",
+      "bytes": 273712,
+      "nodes": 40,
+      "meshes": 39,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/code-reviewer.glb",
+      "bytes": 273792,
+      "nodes": 40,
+      "meshes": 39,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/data-analyst.glb",
+      "bytes": 286356,
+      "nodes": 44,
+      "meshes": 43,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/deploy-agent.glb",
+      "bytes": 273708,
+      "nodes": 40,
+      "meshes": 39,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/design-agent.glb",
+      "bytes": 264952,
+      "nodes": 39,
+      "meshes": 38,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/devops-engineer.glb",
+      "bytes": 324820,
+      "nodes": 45,
+      "meshes": 44,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/docs-writer.glb",
+      "bytes": 322324,
+      "nodes": 46,
+      "meshes": 45,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/frontend-engineer.glb",
+      "bytes": 322340,
+      "nodes": 46,
+      "meshes": 45,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/mobile-engineer.glb",
+      "bytes": 324804,
+      "nodes": 45,
+      "meshes": 44,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/ops-monitor.glb",
+      "bytes": 309052,
+      "nodes": 45,
+      "meshes": 44,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/product-manager.glb",
+      "bytes": 288948,
+      "nodes": 43,
+      "meshes": 42,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/qa-engineer.glb",
+      "bytes": 316060,
+      "nodes": 44,
+      "meshes": 43,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/release-manager.glb",
+      "bytes": 324904,
+      "nodes": 45,
+      "meshes": 44,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/security-reviewer.glb",
+      "bytes": 264692,
+      "nodes": 38,
+      "meshes": 37,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/characters/test-runner.glb",
+      "bytes": 324800,
+      "nodes": 45,
+      "meshes": 44,
+      "clips": [
+        "idle",
+        "typing",
+        "walk",
+        "coffee-sip",
+        "celebrate",
+        "sit-down",
+        "stand-up",
+        "rest"
+      ]
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/coffee-jar.glb",
+      "bytes": 5436,
+      "nodes": 4,
+      "meshes": 3,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/counter.glb",
+      "bytes": 34356,
+      "nodes": 9,
+      "meshes": 8,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/cup-stack.glb",
+      "bytes": 23652,
+      "nodes": 7,
+      "meshes": 6,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/espresso-machine.glb",
+      "bytes": 39296,
+      "nodes": 12,
+      "meshes": 11,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/mug.glb",
+      "bytes": 23484,
+      "nodes": 5,
+      "meshes": 4,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/pendant-lamp.glb",
+      "bytes": 28588,
+      "nodes": 4,
+      "meshes": 3,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/coffee-corner/stool.glb",
+      "bytes": 75624,
+      "nodes": 8,
+      "meshes": 7,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/chair.glb",
+      "bytes": 63872,
+      "nodes": 15,
+      "meshes": 14,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/desk.glb",
+      "bytes": 34688,
+      "nodes": 11,
+      "meshes": 10,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/keyboard.glb",
+      "bytes": 42756,
+      "nodes": 42,
+      "meshes": 41,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/laptop.glb",
+      "bytes": 47808,
+      "nodes": 50,
+      "meshes": 49,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/monitor-off.glb",
+      "bytes": 33448,
+      "nodes": 6,
+      "meshes": 5,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/monitor-on.glb",
+      "bytes": 36548,
+      "nodes": 15,
+      "meshes": 14,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/mouse.glb",
+      "bytes": 56388,
+      "nodes": 4,
+      "meshes": 3,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/server.glb",
+      "bytes": 60040,
+      "nodes": 18,
+      "meshes": 17,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/smartphone.glb",
+      "bytes": 32812,
+      "nodes": 4,
+      "meshes": 3,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/task-board.glb",
+      "bytes": 58868,
+      "nodes": 11,
+      "meshes": 10,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/office-floor/water-cooler.glb",
+      "bytes": 61748,
+      "nodes": 9,
+      "meshes": 8,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/armchair.glb",
+      "bytes": 38572,
+      "nodes": 11,
+      "meshes": 10,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/beanbag.glb",
+      "bytes": 24580,
+      "nodes": 4,
+      "meshes": 3,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/bookcase.glb",
+      "bytes": 39744,
+      "nodes": 29,
+      "meshes": 28,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/clock.glb",
+      "bytes": 32608,
+      "nodes": 17,
+      "meshes": 16,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/coffee-table.glb",
+      "bytes": 29240,
+      "nodes": 5,
+      "meshes": 4,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/floor-lamp.glb",
+      "bytes": 5680,
+      "nodes": 5,
+      "meshes": 4,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/green-cushion.glb",
+      "bytes": 32280,
+      "nodes": 2,
+      "meshes": 1,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/resting-dog.glb",
+      "bytes": 26896,
+      "nodes": 11,
+      "meshes": 10,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/rug.glb",
+      "bytes": 36868,
+      "nodes": 20,
+      "meshes": 19,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/sleeping-cat.glb",
+      "bytes": 44096,
+      "nodes": 9,
+      "meshes": 8,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/sofa-l.glb",
+      "bytes": 40592,
+      "nodes": 17,
+      "meshes": 16,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/rest-area/wall-shelf.glb",
+      "bytes": 32568,
+      "nodes": 3,
+      "meshes": 2,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/shared/blank-sign.glb",
+      "bytes": 32576,
+      "nodes": 3,
+      "meshes": 2,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/shared/books.glb",
+      "bytes": 34244,
+      "nodes": 7,
+      "meshes": 6,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/shared/desk-plant.glb",
+      "bytes": 51616,
+      "nodes": 16,
+      "meshes": 15,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/shared/floor-plant.glb",
+      "bytes": 53968,
+      "nodes": 22,
+      "meshes": 21,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/shared/notebook.glb",
+      "bytes": 32972,
+      "nodes": 4,
+      "meshes": 3,
+      "clips": []
+    },
+    {
+      "file": "public/models/furniture/shared/tablet.glb",
+      "bytes": 33440,
+      "nodes": 6,
+      "meshes": 5,
+      "clips": []
+    }
+  ]
+}

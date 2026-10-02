@@ -1,0 +1,6 @@
+node_modules/
+# dist/ is committed on purpose: the plugin ships a runnable build.
+.env
+.env.*
+!.env.example
+.DS_Store

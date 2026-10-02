@@ -1,0 +1,19 @@
+COZY OFFICE — REACT APPLICATION
+
+1. Install Node.js 22.12 or newer.
+2. Open a terminal in the cozy-office-react folder.
+3. Run: npm install
+4. Run: npm run dev
+5. Open the local address printed by Vite.
+
+Do not double-click index.html. Do not move the models out of public/models.
+
+Source, 3D models, portraits, tests and documentation are included.
+No AI-provider account or API key is needed for the local simulation.
+
+README.md explains controls and setup.
+docs/INTEGRATION.md explains the real-backend event adapter.
+docs/TESTING.md records what was and was not tested.
+
+The source/logic/assets were checked. A real Vite/WebGL run could not be
+verified here because the environment could not access the npm registry.

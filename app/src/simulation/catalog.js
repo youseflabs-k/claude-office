@@ -1,0 +1,133 @@
+export const CHARACTERS = [
+  {
+    "id": "code-reviewer",
+    "color": "e96754",
+    "skin": "815439",
+    "hair": "3b2620",
+    "hat": "beanie",
+    "headphones": false
+  },
+  {
+    "id": "mobile-engineer",
+    "color": "4d83d6",
+    "skin": "805333",
+    "hair": "35271f",
+    "hat": "cap",
+    "headphones": true
+  },
+  {
+    "id": "backend-engineer",
+    "color": "45976a",
+    "skin": "d09a72",
+    "hair": "42302b",
+    "hat": "curls",
+    "headphones": false
+  },
+  {
+    "id": "qa-engineer",
+    "color": "e6af39",
+    "skin": "cc8f69",
+    "hair": "53352a",
+    "hat": "bun",
+    "headphones": true
+  },
+  {
+    "id": "security-reviewer",
+    "color": "354258",
+    "skin": "bc8662",
+    "hair": "302321",
+    "hat": "hood",
+    "headphones": false
+  },
+  {
+    "id": "docs-writer",
+    "color": "ad95db",
+    "skin": "edc099",
+    "hair": "3d2924",
+    "hat": "short",
+    "headphones": true
+  },
+  {
+    "id": "bug-triage",
+    "color": "d65b54",
+    "skin": "b98561",
+    "hair": "3a271e",
+    "hat": "cap",
+    "headphones": false
+  },
+  {
+    "id": "test-runner",
+    "color": "7ab7dd",
+    "skin": "d7a47f",
+    "hair": "4c3325",
+    "hat": "cap",
+    "headphones": true
+  },
+  {
+    "id": "release-manager",
+    "color": "d99c36",
+    "skin": "a97857",
+    "hair": "3b2a25",
+    "hat": "beanie",
+    "headphones": true
+  },
+  {
+    "id": "product-manager",
+    "color": "b96a58",
+    "skin": "e0ad86",
+    "hair": "3c2b28",
+    "hat": "beanie",
+    "headphones": false,
+    "glasses": true
+  },
+  {
+    "id": "design-agent",
+    "color": "9a70cc",
+    "skin": "ce956d",
+    "hair": "51352b",
+    "hat": "bun",
+    "headphones": false
+  },
+  {
+    "id": "frontend-engineer",
+    "color": "3c9d9c",
+    "skin": "d9aa82",
+    "hair": "292724",
+    "hat": "short",
+    "headphones": true
+  },
+  {
+    "id": "data-analyst",
+    "color": "4c9677",
+    "skin": "bd8766",
+    "hair": "332621",
+    "hat": "short",
+    "headphones": false,
+    "glasses": true
+  },
+  {
+    "id": "devops-engineer",
+    "color": "555e76",
+    "skin": "8c5f40",
+    "hair": "292321",
+    "hat": "cap",
+    "headphones": true
+  },
+  {
+    "id": "ops-monitor",
+    "color": "dddfe2",
+    "skin": "dfdfdc",
+    "hair": "1b2335",
+    "hat": "robot",
+    "headphones": true
+  },
+  {
+    "id": "deploy-agent",
+    "color": "db8151",
+    "skin": "cf9b74",
+    "hair": "3b2922",
+    "hat": "cap",
+    "headphones": false
+  }
+];
+export const archetypeById = id => CHARACTERS.find(c => c.id === id);

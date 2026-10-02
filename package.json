@@ -1,0 +1,7 @@
+{
+  "name": "claude-office",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "A live office dashboard for your Claude sessions and agents"
+}
