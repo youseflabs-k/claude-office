@@ -41,7 +41,13 @@ export function setLayout(id) {
   fill(SLOTS, [...desks, ...lounge, ...coffee, ...GARDEN]);
   fill(OBSTACLES, [...obstacles,
     {id:'garden-table',x:-8.5,z:gz,halfX:.85,halfZ:.36},
-    {id:'birdbath',x:7.2,z:gz+1,halfX:.65,halfZ:.65},
+    {id:'birdbath',x:7.2,z:gz+1,halfX:1.6,halfZ:1.6},
+    {id:'garden-quiet-bench',x:3.2,z:gz+1.6,halfX:.23,halfZ:1.25},
+    {id:'garden-border-west',x:-13.4,z:layout.floor[1]/2+8.5,halfX:1.7,halfZ:4},
+    {id:'garden-border-east',x:13.4,z:layout.floor[1]/2+8.1,halfX:1.6,halfZ:4.9},
+    {id:'garden-border-back',x:0,z:layout.floor[1]/2+13.6,halfX:5.8,halfZ:.9},
+    {id:'garden-border-nook',x:-5.6,z:layout.floor[1]/2+11.4,halfX:2,halfZ:1.1},
+    ...[-11.3,-5.7].flatMap(x=>[gz-1.9,gz+1.9].map(z=>({id:`pergola-${x}-${z}`,x,z,halfX:.10,halfZ:.10}))),
     ...GARDEN.map(s=>({id:s.id,x:s.seat[0],z:s.seat[1]-.30*Math.cos(s.facing),halfX:1.25,halfZ:.23})),
   ]);
 

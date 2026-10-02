@@ -18,3 +18,17 @@ The live pavilion walls, glazing, door frames and hinged door are authored in
 `src/scene/architecture.js`; their openings are actual gaps in the wall geometry.
 
 No third-party garden models or textures were downloaded.
+
+## Grass garden redesign
+
+`app/src/scene/garden.js` authors the garden directly in Three.js: textured lawn,
+instanced grass tufts, winding limestone paths, a timber pergola deck, ground-level
+shrub and flower borders, and a small reading terrace. Existing local tree,
+bench, birdbath, rock, and pergola GLBs are reused. The lawn texture is a seeded
+procedural canvas texture; the paths and deck use the previously generated
+limestone and oak textures. No additional external assets are required.
+
+Garden seating coordinates remain aligned with the simulation, and planting
+beds, the birdbath border, benches, and pergola posts are navigation obstacles.
+The lawn is selectable as a floor for walking commands. Every imported office
+receives the same garden through the shared environment clone.

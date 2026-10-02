@@ -54,16 +54,6 @@ export function buildStudioDetails(root, layout) {
     const puff = mesh(new THREE.SphereGeometry(0.04, 8, 6), new THREE.MeshBasicMaterial({ color: '#fff1da', transparent: true, opacity: 0.12, depthWrite: false }), [cx + 0.98, 1.4, cz + 0.25]);
     puff.castShadow = puff.receiveShadow = false; steam.push({ puff, phase: i / 5 });
   }
-  const gardenZ = d / 2 + 6;
-  // Overhead cafe lights frame the courtyard without enclosing the view.
-  const cablePoints = [];
-  for (let i = 0; i <= 24; i++) {
-    const x = -9 + i * 0.75, y = 3.9 - Math.sin(i / 24 * Math.PI) * 0.7;
-    cablePoints.push(new THREE.Vector3(x, y, gardenZ));
-    if (i % 2 === 0) mesh(new THREE.SphereGeometry(0.065, 8, 6), material('#ffe8b8', { emissive: '#ffc578', emissiveIntensity: 1.4 }), [x, y - 0.10, gardenZ]);
-  }
-  const cable = new THREE.Line(new THREE.BufferGeometry().setFromPoints(cablePoints), new THREE.LineBasicMaterial({ color: '#4c5145' })); root.add(cable);
-  for (const x of [-9, 9]) box([0.12, 4, 0.12], [x, 1.95, gardenZ], oak);
   return {
     textures,
     update(time, night) {

@@ -3,6 +3,7 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { DESKS, activeLayout } from '../simulation/layout.js';
 import { expand } from '../simulation/layouts.js';
 import { buildStudioDetails } from './studioDetails.js';
+import { buildGarden } from './garden.js';
 import { buildArchitecture } from './architecture.js';
 
 function canvasTexture(width, height, draw) {
@@ -53,13 +54,20 @@ export async function buildEnvironment(scene, library, disposed = () => false) {
   // that runs past the frame in every direction, so panning finds more world
   // rather than the edge of a slab sitting in the dark.
   const GROUND = 1000;
-  const lawn = canvasTexture(256, 256, (ctx, w, h) => {
-    ctx.fillStyle = '#84917a'; ctx.fillRect(0, 0, w, h);
-    for (let i = 0; i < 2200; i++) {
-      ctx.fillStyle = i % 2 ? '#92a086' : '#75866c';
-      ctx.globalAlpha = 0.18; ctx.fillRect((i * 73) % w, (i * 127 + Math.floor(i / w) * 29) % h, 2, 3);
+  const lawn = canvasTexture(512, 512, (ctx, w, h) => {
+    let seed=8237;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
+    ctx.fillStyle='#758d59';ctx.fillRect(0,0,w,h);
+    for(let i=0;i<35;i++) {
+      const x=random()*w,y=random()*h,r=30+random()*60;
+      const glow=ctx.createRadialGradient(x,y,0,x,y,r);glow.addColorStop(0,i%2?'#9eb16b24':'#405a3620');glow.addColorStop(1,'#758d5900');
+      ctx.fillStyle=glow;ctx.fillRect(x-r,y-r,r*2,r*2);
     }
-    ctx.globalAlpha = 1;
+    for(let i=0;i<15000;i++) {
+      const x=random()*w,y=random()*h;
+      ctx.strokeStyle=['#9aac71','#657e48','#82985c','#5e7847'][i%4];ctx.globalAlpha=.24+random()*.24;
+      ctx.lineWidth=.5+random()*.5;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+random()*2-1,y-1-random()*4);ctx.stroke();
+    }
+    ctx.globalAlpha=1;
   });
   lawn.wrapS = lawn.wrapT = THREE.RepeatWrapping; lawn.repeat.set(35, 35); textures.push(lawn);
   const grass = new THREE.Mesh(
@@ -123,24 +131,7 @@ export async function buildEnvironment(scene, library, disposed = () => false) {
   };
   for (const x of [2.4,7.6,12.6]) prop('studio/birch-tree',[x,0,-FD/2-2.3],x*.2,1.05);
   for (const z of [-6.6,-.8]) prop('studio/olive-tree',[-FW/2-2.4,0,z],z*.1,1.1);
-  // A real planted courtyard, with shaded seating and native 3D foliage.
-  const court = new THREE.Mesh(new THREE.PlaneGeometry(FW + 2, 15), new THREE.MeshStandardMaterial({ map: paving, roughness: 0.93, bumpMap: paving, bumpScale: 0.012 }));
-  court.rotation.x = -Math.PI / 2; court.position.set(0, -0.025, FD / 2 + 7.5); court.receiveShadow = true; court.userData.ignorePick = true; root.add(court);
-  const gz = FD / 2 + 6;
-  prop('studio/pergola', [-8.5, 0, gz], 0, 1);
-  prop('studio/garden-bench', [-8.5, 0, gz - 1.4], 0, 1);
-  prop('studio/garden-bench', [-8.5, 0, gz + 1.4], Math.PI, 1);
-  prop('studio/outdoor-table', [-8.5, 0, gz], 0, 1);
-  prop('studio/birdbath', [7.2, 0, gz + 1], 0, 1);
-  for (const [x,z,scale] of [[-14,gz-2,1.2],[-13,gz+7,.95],[13.8,gz+5,1.25],[13.7,gz-3,1.15],[3,gz+8,1.1]]) {
-    prop(x < 0 ? 'studio/olive-tree' : 'studio/birch-tree', [x,0,z], x*.2,scale);
-    prop('studio/river-rocks', [x,0,z], x*.3,1.3);
-  }
-  for (const x of [-5,1,7]) prop('studio/lavender-bed', [x,0,gz+6],0,1.2);
-  for (const x of [-13.6,13.6]) for (const dz of [-4,0,4]) prop('studio/lavender-bed',[x,0,gz+dz],Math.PI/2,.9);
-  for (const [x,z] of [[-4,gz-4],[5,gz-4],[-11,gz+2],[10,gz+3]]) prop('studio/fern-planter',[x,0,z],x*.5,1.35);
-  prop('studio/garden-bench', [6.8,0,gz-2.2],0,1.15);
-  prop('studio/garden-bench', [3.6,0,gz+1.6],Math.PI/2,1.15);
+  buildGarden(root, layout, { lawn, paving, wood, prop, textures });
   cluster(loungeParts, layout.lounge, { zone: 'rest' });
   cluster(coffeeParts, layout.coffee, { zone: 'coffee' });
 

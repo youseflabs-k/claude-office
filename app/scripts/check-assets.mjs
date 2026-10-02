@@ -41,7 +41,7 @@ for(const character of CHARACTERS){
   const png=await readFile(join(root,`public/portraits/${character.id}.png`));
   assert.equal(png.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
 }
-const source=await readFile(join(root,'src/scene/environment.js'),'utf8');
+const source=(await Promise.all(['environment.js','garden.js'].map(file=>readFile(join(root,'src/scene',file),'utf8')))).join('\n');
 for(const match of source.matchAll(/prop\('([^']+)'/g))assert.ok((await stat(join(root,`public/models/furniture/${match[1]}.glb`))).size,match[1]);
 const report={models:files.length,characters:CHARACTERS.length,furniture:files.length-CHARACTERS.length,animationClips:clipCount,portraits:CHARACTERS.length,modelBytes:inventory.reduce((n,f)=>n+f.bytes,0),files:inventory};
 if(process.argv.includes('--write'))await writeFile(join(root,'docs/asset-inventory.json'),JSON.stringify(report,null,2)+'\n');
