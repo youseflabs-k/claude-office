@@ -385,12 +385,15 @@ server.listen(PORT, '127.0.0.1', async () => {
 
   // Headless and CI runs do not want a browser window thrown at them.
   if (!process.env.CLAUDE_OFFICE_NO_OPEN) {
-    const opener = process.platform === 'darwin'
-      ? 'open'
+    // `start` is a cmd builtin rather than an executable, so on Windows it
+    // has to be run through cmd — and the empty "" is the window title cmd
+    // would otherwise take the URL for.
+    const [opener, args] = process.platform === 'darwin'
+      ? ['open', [url]]
       : process.platform === 'win32'
-        ? 'start'
-        : 'xdg-open';
-    spawn(opener, [url], { detached: true, stdio: 'ignore' }).unref();
+        ? ['cmd', ['/c', 'start', '', url]]
+        : ['xdg-open', [url]];
+    spawn(opener, args, { detached: true, stdio: 'ignore' }).unref();
   }
 });
 

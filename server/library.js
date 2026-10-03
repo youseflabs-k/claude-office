@@ -223,7 +223,9 @@ export function openInEditor(projectPath) {
     : ['code', [projectPath]];
 
   return new Promise((resolvePromise, reject) => {
-    execFile(cmd, args, { timeout: 15000 }, (err) => {
+    // On Windows `code` is code.cmd, which execFile cannot run on its own.
+    const options = { timeout: 15000, shell: process.platform === 'win32' };
+    execFile(cmd, args, options, (err) => {
       if (err) {
         reject(new Error(
           process.platform === 'darwin'

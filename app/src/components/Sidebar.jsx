@@ -5,6 +5,10 @@ import { store } from '../store/store.js';
 import { importProject, folders as foldersApi } from '../integrations/claude.js';
 import { loadWorkspaces } from '../integrations/claudeStudio.js';
 
+// The last segment of a path that came from the server, whichever platform
+// wrote it: Windows hands back C:\Users\you\project.
+const lastSegment = (path) => path?.split(/[\\/]/).filter(Boolean).pop();
+
 const ROOMS = [
   { id: 'office', icon: 'office', label: 'Office floor' },
   { id: 'lounge', icon: 'leaf', label: 'Rest area' },
@@ -108,7 +112,7 @@ export default function Sidebar() {
           {available.map(entry => (
             <button key={entry.dir} className="project-item dim" onClick={() => bringIn(entry)} title={entry.realPath ?? entry.claudeSlug}>
               <Icon name="add" size={13}/>
-              <span>{busy === entry.dir ? 'importing…' : (entry.realPath?.split('/').pop() ?? entry.claudeSlug)}</span>
+              <span>{busy === entry.dir ? 'importing…' : (lastSegment(entry.realPath) ?? entry.claudeSlug)}</span>
               <span className="tiny-count">{entry.provider === 'codex' ? 'Codex · ' : ''}{entry.sessionCount}</span>
             </button>
           ))}

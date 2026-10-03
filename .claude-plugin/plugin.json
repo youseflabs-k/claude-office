@@ -1,7 +1,7 @@
 {
   "name": "claude-office",
   "description": "A live 3D office for your Claude Code sessions and agents",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "Ahmed Yousef",
     "url": "https://github.com/youseflabs-k"

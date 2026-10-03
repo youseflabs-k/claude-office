@@ -1,11 +1,12 @@
+import { basename as pathBasename } from 'node:path';
 import { assignSeats } from './desks.js';
 import { DONE_LINGER_MS } from '../config.js';
 
-// Last path segment, ignoring any trailing slash.
+// Last path segment. node:path knows both separators on Windows, where a
+// hand-rolled split on '/' hands back the whole of C:\Users\x\project.
 function basename(path) {
   if (!path) return null;
-  const parts = String(path).replace(/\/+$/, '').split('/');
-  return parts[parts.length - 1] || null;
+  return pathBasename(String(path)) || null;
 }
 
 
