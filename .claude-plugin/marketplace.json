@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "A live 3D office for your Claude Code sessions and agents.",
-    "version": "0.3.2"
+    "version": "0.3.3"
   },
   "plugins": [
     {
       "name": "claude-office",
       "source": "./",
       "description": "A live 3D office for your Claude Code sessions. Sessions and subagents walk in, take a desk, work while a tool runs, break for coffee when control comes back to you, and leave when they finish \u2014 driven by what is actually happening in ~/.claude. Click anyone to read their transcript. Ships prebuilt, so /panel runs with no install step.",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "author": {
         "name": "Ahmed Yousef",
         "url": "https://github.com/youseflabs-k"

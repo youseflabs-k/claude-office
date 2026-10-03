@@ -5,7 +5,7 @@
 // watches ~/.claude. Paths inside the server resolve from its own location, so
 // it does not care which directory you run this from.
 
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -67,4 +67,6 @@ if (major < 20 || (major === 20 && minor < 19)) {
   process.exit(1);
 }
 
-await import(join(HERE, '..', 'server', 'start.js'));
+// A file URL, not a path: on Windows an absolute path starts with a drive
+// letter, and the ESM loader reads "C:" as an unsupported protocol.
+await import(pathToFileURL(join(HERE, '..', 'server', 'start.js')).href);
